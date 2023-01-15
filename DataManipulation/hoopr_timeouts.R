@@ -26,6 +26,8 @@ pbp <- pbp %>%
          used_full_timeouts = cumsum(called_full_timeout),
          used_short_timeouts = cumsum(called_short_timeout),
          full_timeouts_remaining = starting_full_timeouts - used_full_timeouts,
-         short_timeouts_remaining = starting_short_timeouts - used_short_timeouts)
+         short_timeouts_remaining = starting_short_timeouts - used_short_timeouts,
+         overtime_period = max(period - 2, 0),
+         short_timeouts_remaining = short_timeouts_remaining + overtime_period)
 
 
